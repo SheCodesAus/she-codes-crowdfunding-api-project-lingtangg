@@ -1,3 +1,4 @@
+from wsgiref import validate
 from rest_framework import serializers
 from .models import Project, Pledge
 
@@ -19,10 +20,11 @@ class PledgeSerializer(serializers.Serializer):
   amount = serializers.IntegerField()
   comment = serializers.CharField(max_length=200)
   anonymous = serializers.BooleanField()
-  supporter = serializers.CharField(max_length=200)
-  project_id = serializers.IntegerField()
+  supporter = serializers.ReadOnlyField(source='supporter.id')
+  project = serializers.IntegerField()
   
   def create(self, validated_data):
+    validated_data['project'] = Project.objects.get(id=validated_data['project'])
     return Pledge.objects.create(**validated_data)
 
 class ProjectDetailSerializer(ProjectSerializer):
@@ -35,5 +37,18 @@ class ProjectDetailSerializer(ProjectSerializer):
     instance.is_open = validated_data.get('is_open', instance.is_open)
     instance.date_created = validated_data.get('date_created', instance.date_created)
     instance.owner = validated_data.get('owner', instance.owner)
+    instance.save()
+    return instance
+
+class PledgeDetailSerializer(PledgeSerializer):
+  projects = ProjectSerializer(read_only=True)
+
+  # for updating single pledge
+  def update(self, instance, validated_data):
+    instance.amount = validated_data.get('amount', instance.amount)
+    instance.comment = validated_data.get('comment', instance.comment)
+    instance.anonymous = validated_data.get('anonymous', instance.anonymous)
+    instance.supporter = validated_data.get('supporter', instance.supporter)
+    instance.project = validated_data.get('project', instance.project)
     instance.save()
     return instance
