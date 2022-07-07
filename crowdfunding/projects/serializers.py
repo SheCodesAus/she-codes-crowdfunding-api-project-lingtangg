@@ -6,7 +6,10 @@ class ProjectSerializer(serializers.Serializer):
   id = serializers.ReadOnlyField()
   title = serializers.CharField(max_length=200)
   description = serializers.CharField(max_length=None)
-  goal = serializers.IntegerField()
+  main_language = serializers.CharField(max_length=100)
+  secondary_language = serializers.CharField(max_length=100)
+  time_required = serializers.IntegerField()
+  location = serializers.CharField(max_length=100)
   image = serializers.URLField()
   is_open = serializers.BooleanField()
   date_created = serializers.DateTimeField()
@@ -17,14 +20,14 @@ class ProjectSerializer(serializers.Serializer):
 
 class PledgeSerializer(serializers.Serializer):
   id = serializers.ReadOnlyField()
-  amount = serializers.IntegerField()
+  time_pledged = serializers.IntegerField()
   comment = serializers.CharField(max_length=200)
-  anonymous = serializers.BooleanField()
+  date_created = serializers.DateTimeField()
   supporter = serializers.ReadOnlyField(source='supporter.id')
-  project = serializers.IntegerField()
+  project_id = serializers.IntegerField()
   
   def create(self, validated_data):
-    validated_data['project'] = Project.objects.get(id=validated_data['project'])
+    # validated_data['project'] = Project.objects.get(id=validated_data['project'])
     return Pledge.objects.create(**validated_data)
 
 class ProjectDetailSerializer(ProjectSerializer):
@@ -34,8 +37,11 @@ class ProjectDetailSerializer(ProjectSerializer):
   def update(self, instance, validated_data):
     instance.title = validated_data.get('title', instance.title)
     instance.description = validated_data.get('description', instance.description)
+    instance.main_language = validated_data.get('main_language', instance.main_language)
+    instance.secondary_language = validated_data.get('secondary_language', instance.secondary_language)
+    instance.time_required = validated_data.get('time_required', instance.time_required)
+    instance.location = validated_data.get('location', instance.location)
     instance.is_open = validated_data.get('is_open', instance.is_open)
-    instance.date_created = validated_data.get('date_created', instance.date_created)
     instance.owner = validated_data.get('owner', instance.owner)
     instance.save()
     return instance
@@ -45,9 +51,8 @@ class PledgeDetailSerializer(PledgeSerializer):
 
   # for updating single pledge
   def update(self, instance, validated_data):
-    instance.amount = validated_data.get('amount', instance.amount)
+    instance.time_pledged = validated_data.get('time_pledged', instance.time_pledged)
     instance.comment = validated_data.get('comment', instance.comment)
-    instance.anonymous = validated_data.get('anonymous', instance.anonymous)
     instance.supporter = validated_data.get('supporter', instance.supporter)
     instance.project = validated_data.get('project', instance.project)
     instance.save()

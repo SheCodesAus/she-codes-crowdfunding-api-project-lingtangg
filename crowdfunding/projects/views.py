@@ -10,8 +10,7 @@ from .permissions import IsOwnerOrReadOnly
 
 class PledgeList(APIView):
   permission_classes = [
-    permissions.IsAuthenticatedOrReadOnly,
-    IsOwnerOrReadOnly
+    permissions.IsAuthenticatedOrReadOnly
   ]
   def get(self, request):
     pledges = Pledge.objects.all()
@@ -97,8 +96,7 @@ class ProjectDetail(APIView):
 
 class PledgeDetail(APIView):
   permission_classes = [
-    permissions.IsAuthenticatedOrReadOnly,
-    IsOwnerOrReadOnly
+    permissions.IsAuthenticatedOrReadOnly
   ]
 
   def get_object(self, pk):

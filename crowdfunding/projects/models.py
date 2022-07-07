@@ -5,7 +5,10 @@ from django.contrib.auth import get_user_model
 class Project(models.Model):
   title = models.CharField(max_length=200)
   description = models.TextField()
-  goal = models.IntegerField()
+  main_language = models.CharField(max_length=100)
+  secondary_language = models.CharField(max_length=100)
+  time_required = models.IntegerField()
+  location = models.CharField(max_length=100)
   image = models.URLField()
   is_open = models.BooleanField()
   date_created = models.DateTimeField()
@@ -16,9 +19,9 @@ class Project(models.Model):
   )
 
 class Pledge(models.Model):
-  amount = models.IntegerField()
+  time_pledged = models.IntegerField()
   comment = models.CharField(max_length=200)
-  anonymous = models.BooleanField()
+  date_created = models.DateTimeField()
   project = models.ForeignKey(
     'Project',
     on_delete=models.CASCADE,
