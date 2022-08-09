@@ -1,0 +1,30 @@
+_id: req_7f8cbe49378d4c0f975a827663f9d8f3
+type: Request
+parentId: fld_f50598dfd55c4339978476af341d2753
+modified: 1659756155348
+created: 1656723589562
+url: "{{ _.baseUrl }}/projects/1/"
+name: Get unique Project
+description: ""
+method: GET
+body:
+  mimeType: application/json
+  text: "\n"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_784078d295b34f17a58e47d3f3a746be
+authentication:
+  type: bearer
+  token: "{% response 'body', 'req_93b4796644ce4d12874bdfd8cada6017',
+    'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+  prefix: Token
+metaSortKey: -1659755523448.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,13 @@
+_id: fld_d71d8952c2774a0098d6dc16cf8dd321
+type: RequestGroup
+parentId: wrk_4d3203bf16cf45d3a825cd856c6a2b21
+modified: 1659756197114
+created: 1659755328234
+name: Local
+description: ""
+environment:
+  baseUrl: http://localhost:8000
+environmentPropertyOrder:
+  "&":
+    - baseUrl
+metaSortKey: -1659755328234

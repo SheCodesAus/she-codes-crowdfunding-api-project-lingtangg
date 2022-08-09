@@ -1,0 +1,39 @@
+_id: req_054099dd44bd442eaea15fd6a9a16308
+type: Request
+parentId: fld_b25a10f23a524849a9fc9317401dfe2b
+modified: 1659756427853
+created: 1659756203949
+url: "{{ _.baseUrl }}/projects/"
+name: Create Project
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: >2
+    
+     {
+            "title": "Project Two",
+            "description": "The donut appreciation society.",
+            "goal": 150,
+            "image": "https://img.taste.com.au/woHAgdO6/w720-h480-cfill-q80/taste/2016/11/cinnamon-donuts-15520-1.jpeg",
+            "is_open": true,
+            "date_created": "2020-03-20T14:28:23.382748Z"
+        }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_784078d295b34f17a58e47d3f3a746be
+authentication:
+  type: bearer
+  token: "{% response 'body', 'req_afd07cccb2ff4d778f8c249b55ade6dc',
+    'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+  prefix: Token
+metaSortKey: -1659755523461
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

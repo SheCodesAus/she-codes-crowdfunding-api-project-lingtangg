@@ -1,0 +1,30 @@
+_id: req_a82b6fd1f6144a65b82a593192a62ee3
+type: Request
+parentId: fld_89bfa030209d49658cae7b6342901950
+modified: 1659756180550
+created: 1656728603765
+url: "{{ _.baseUrl }}/pledges/1/"
+name: Get Specific Pledge
+description: ""
+method: GET
+body:
+  mimeType: application/json
+  text: ""
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_81c75440fd9f43738a3e45d99eef0e09
+authentication:
+  type: bearer
+  prefix: Token
+  token: "{% response 'body', 'req_93b4796644ce4d12874bdfd8cada6017',
+    'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+metaSortKey: -1658385361827
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

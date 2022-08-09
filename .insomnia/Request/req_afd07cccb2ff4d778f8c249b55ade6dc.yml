@@ -1,0 +1,32 @@
+_id: req_afd07cccb2ff4d778f8c249b55ade6dc
+type: Request
+parentId: fld_aa811f5f95f44c90b890945ef5d344e2
+modified: 1659756283441
+created: 1659756203958
+url: "{{ _.baseUrl }}/api-token-auth/"
+name: login
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"username": "Admin",
+    	"password": "Dactes06@"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_784078d295b34f17a58e47d3f3a746be
+authentication:
+  type: bearer
+  token: ""
+metaSortKey: -1657015206397
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

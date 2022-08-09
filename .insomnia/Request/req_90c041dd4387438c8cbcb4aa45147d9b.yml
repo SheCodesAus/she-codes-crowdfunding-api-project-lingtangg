@@ -1,0 +1,35 @@
+_id: req_90c041dd4387438c8cbcb4aa45147d9b
+type: Request
+parentId: fld_d7a98670ecaa43f69c58729bc28f2265
+modified: 1659756167889
+created: 1656728520720
+url: "{{ _.baseUrl }}/users/1/"
+name: Delete User
+description: ""
+method: DELETE
+body:
+  mimeType: application/json
+  text: |-
+    {
+    		"id": 1,
+    		"username": "Test",
+    		"email": "Test@gmail.com"
+    	}
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1ec4321a95184853829516713eb4a898
+authentication:
+  type: bearer
+  token: "{% response 'body', 'req_93b4796644ce4d12874bdfd8cada6017',
+    'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+  prefix: Token
+metaSortKey: -1657015206322
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.herokuapp.com']
 CORS_ALLOW_ALL_ORIGINS = True
 
 

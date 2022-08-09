@@ -1,0 +1,35 @@
+_id: req_904a5e07a11340e496bf7496261b4537
+type: Request
+parentId: fld_d7a98670ecaa43f69c58729bc28f2265
+modified: 1659756170580
+created: 1656726832909
+url: "{{ _.baseUrl }}/users/"
+name: Create User
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    		"id": 1,
+    		"username": "Test",
+    		"email": "Test@gmail.com"
+    	}
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_29b6387bb6054e52bf27f87bd7cd6936
+authentication:
+  type: bearer
+  token: "{% response 'body', 'req_93b4796644ce4d12874bdfd8cada6017',
+    'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+  prefix: Token
+metaSortKey: -1657015206297
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
